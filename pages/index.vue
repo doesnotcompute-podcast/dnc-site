@@ -21,9 +21,13 @@
               />
             </h1>
 
-            <p class="gray db pv2 f6 lh-solid">Published <time>Aug 15th 2017</time></p>
+            <p class="gray db pv2 f6 lh-solid">Published <time v-text="publishedAt(episode)" /></p>
 
-            <a href="" class="link dim black f6 lh-solid fw7">Listen Here</a>
+            <nuxt-link
+                :to="episodePermalink(episode)"
+                class="link dim black f6 lh-solid fw7"
+                v-text="'Listen Here'"
+              />
           </div>
 
           <div class="fl w-100 w-two-thirds-ns pl2-ns mt4 mt0-ns">
@@ -38,6 +42,7 @@
 
 <script>
 import { mapState } from 'vuex'
+import format from 'date-fns/format'
 
 export default {
   computed: {
@@ -49,6 +54,10 @@ export default {
   methods: {
     episodePermalink(episode) {
       return `/episodes/${episode.id}`
+    },
+
+    publishedAt(episode) {
+      return format(episode.published_at, 'MM/DD/YYYY')
     }
   }
 }
