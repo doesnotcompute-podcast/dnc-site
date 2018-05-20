@@ -17,5 +17,7 @@ COPY . /app/
 
 RUN npm run build
 
+COPY .nuxt /app/
+
 EXPOSE 3000
 CMD [ "npm", "start" ]
