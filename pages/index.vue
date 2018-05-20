@@ -5,7 +5,6 @@
     </div>
 
     <div class="fl w-100 w-75-ns pl3-ns">
-
       <article
         v-for="episode in episodes"
         :key="episode.id"
@@ -35,7 +34,6 @@
           </div>
         </div>
       </article>
-
     </div>
   </div>
 </template>
