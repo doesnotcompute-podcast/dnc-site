@@ -1,6 +1,6 @@
 const { Nuxt, Builder } = require('nuxt')
 const app = require('express')()
-const port = process.env.PORT || 3000
+const port = parseInt(process.env.PORT) || 3000
 const host = process.env.HOST || '0.0.0.0'
 const morgan = require('morgan')
 const isProd = process.env.NODE_ENV === 'production'
@@ -8,7 +8,7 @@ const logFormat = isProd ? 'combined' : 'dev'
 
 app.use(morgan(logFormat))
 
-let config = require('./nuxt.config.js')
+let config = require('../nuxt.config.js')
 const nuxt = new Nuxt(config)
 config.dev = !isProd
 
