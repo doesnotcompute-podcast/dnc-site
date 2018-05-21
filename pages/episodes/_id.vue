@@ -39,6 +39,24 @@ export default {
     }
   },
 
+  head() {
+    return {
+      title: this.episode.title,
+      meta: [
+        {
+          hid: 'description',
+          name: 'description',
+          content: this.episode.description
+        },
+        {
+          hid: 'og:description',
+          property: 'og:description',
+          content: this.episode.description
+        }
+      ]
+    }
+  },
+
   computed: {
     embedUrl() {
       let url = this.episode.sharing_url
