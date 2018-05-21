@@ -11,3 +11,4 @@ services:
       - .env
     volumes:
       - .:/app:cached
+    command: ["npm", "run", "dev"]
