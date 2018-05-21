@@ -1,22 +1,13 @@
-# dnctopics-nuxt
+# Does Not Compute
 
-> Nuxt.js project
+> A weekly podcast about the lives and workflows of modern web developers, hosted by Sean Washington & Paul Straw.
 
-## Build Setup
+## Development
 
-``` bash
-# install dependencies
-$ npm install # Or yarn install
-
-# serve with hot reload at localhost:3000
-$ npm run dev
-
-# build for production and launch server
-$ npm run build
-$ npm start
-
-# generate static project
-$ npm run generate
-```
+1. Install [Docker](https://www.docker.com/)
+2. Add your `.env` file to the project root. An example can be found at `.env.sample`.
+3. Run `docker-compose build`
+4. Run `./dev.sh`
+5. Visit `localhost:3000`
 
 For detailed explanation on how things work, checkout the [Nuxt.js docs](https://github.com/nuxt/nuxt.js).
