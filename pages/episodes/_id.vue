@@ -41,12 +41,17 @@ export default {
 
   head() {
     return {
-      title: this.episode.title,
+      title: `Episode ${this.episode.title}`,
       meta: [
         {
           hid: 'description',
           name: 'description',
           content: this.episode.description
+        },
+        {
+          hid: 'og:title',
+          property: 'og:title',
+          content: `Episode ${this.episode.title}`
         },
         {
           hid: 'og:description',
