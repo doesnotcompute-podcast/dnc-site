@@ -5,7 +5,6 @@ const description =
   'A weekly podcast about the lives and workflows of modern web developers, hosted by Sean Washington & Paul Straw.'
 
 module.exports = {
-  // prettier-ignore
   head: {
     title: title,
     meta: [
@@ -13,13 +12,22 @@ module.exports = {
       { name: 'viewport', content: 'width=device-width, initial-scale=1' },
       { hid: 'description', name: 'description', content: description },
       { hid: 'og:title', property: 'og:title', content: title },
-      { hid: 'og:description', property: 'og:description', content: description },
-      { property: "og:site_name", content: title },
-      { property: "og:type", content: "website" }
+      {
+        hid: 'og:description',
+        property: 'og:description',
+        content: description
+      },
+      { property: 'og:site_name', content: title },
+      { property: 'og:type', content: 'website' }
     ],
     link: [
       { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' },
-      { rel: 'alernate', type:'application/rss+xml', title: "Does Not Compute RSS", href: "https://rss.simplecast.com/podcasts/1386/rss" }
+      {
+        rel: 'alernate',
+        type: 'application/rss+xml',
+        title: 'Does Not Compute RSS',
+        href: 'https://rss.simplecast.com/podcasts/1386/rss'
+      }
     ]
   },
   css: ['tachyons/css/tachyons.css'],
