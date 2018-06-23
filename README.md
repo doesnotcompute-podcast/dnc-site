@@ -12,7 +12,11 @@
 
 For detailed explanation on how things work, checkout the [Nuxt.js docs](https://github.com/nuxt/nuxt.js).
 
+To view the server logs, use `docker-compose logs -f web`.
+
 ## Deploy Process
+
+Adapted from [https://docs.docker.com/compose/production/](https://docs.docker.com/compose/production/)
 
 ```shell
 # set active docker-machine to dnc-site
