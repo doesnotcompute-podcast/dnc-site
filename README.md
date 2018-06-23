@@ -11,3 +11,15 @@
 5. Visit `localhost:3000`
 
 For detailed explanation on how things work, checkout the [Nuxt.js docs](https://github.com/nuxt/nuxt.js).
+
+## Deploy Process
+
+```shell
+# set active docker-machine to dnc-site
+eval $(docker-machine env dnc-site)
+
+Run ./deploy.sh
+
+# set active docker-machine back to local install
+eval $(docker-machine env -u)
+```
