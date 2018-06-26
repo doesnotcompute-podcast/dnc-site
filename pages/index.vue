@@ -1,10 +1,13 @@
 <template>
   <div class="cf">
     <div class="fl w-100 w-25-ns pr3-ns">
-      <h2 class="f5 mt4 pt3 bt">Episodes</h2>
+      <search-filter />
     </div>
 
-    <div class="fl w-100 w-75-ns pl3-ns">
+    <div
+      class="list fl w-100 w-75-ns pl3-ns"
+      :class="{ 'o-30': filtering }"
+    >
       <article
         v-for="episode in episodes"
         :key="episode.id"
@@ -41,11 +44,31 @@
 <script>
 import { mapState } from 'vuex'
 import format from 'date-fns/format'
+import SearchFilter from '~/components/global/SearchFilter'
 
 export default {
+  name: 'EpisodesIndex',
+
+  components: {
+    SearchFilter
+  },
+
+  data() {
+    return {
+      term: ''
+    }
+  },
+
   computed: {
     ...mapState({
-      episodes: state => state.episodes.all
+      episodes: state => {
+        if (state.episodes.filtered.length) {
+          return state.episodes.filtered
+        } else {
+          return state.episodes.all
+        }
+      },
+      filtering: state => state.episodes.filtering
     })
   },
 
@@ -60,3 +83,10 @@ export default {
   }
 }
 </script>
+
+<style scoped>
+.list {
+  transition: opacity 240ms ease-out;
+}
+</style>
+

@@ -14,8 +14,8 @@
 </template>
 
 <script>
-import AppHeader from '~/components/global/header.vue'
-import AppFooter from '~/components/global/footer.vue'
+import AppHeader from '~/components/global/Header.vue'
+import AppFooter from '~/components/global/Footer.vue'
 
 export default {
   name: 'DefaultLayout',
