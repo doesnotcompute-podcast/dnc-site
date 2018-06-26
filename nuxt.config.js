@@ -32,9 +32,11 @@ module.exports = {
   },
   css: ['tachyons/css/tachyons.css'],
   loading: { color: '#3B8070' },
+  plugins: [{ src: '~plugins/ga.js', ssr: false }],
   env: {
     API_KEY: process.env.API_KEY,
-    API_URL: process.env.API_URL
+    API_URL: process.env.API_URL,
+    GA_ID: process.env.GA_ID
   },
   modules: ['@nuxtjs/axios', '@nuxtjs/markdownit'],
   markdownit: {
