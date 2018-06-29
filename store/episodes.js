@@ -1,4 +1,4 @@
-import lunr from "lunr"
+import lunr from 'lunr'
 
 const PODCAST_ID = process.env.PODCAST_ID
 const API_KEY = process.env.API_KEY
@@ -36,7 +36,7 @@ export const mutations = {
 export const actions = {
   toggleFiltering({ commit }) {
     return new Promise(resolve => {
-      commit("toggleFiltering")
+      commit('toggleFiltering')
       resolve()
     })
   },
@@ -48,12 +48,13 @@ export const actions = {
       )
 
       req.then(res => {
-        commit("replace", res.data)
+        commit('replace', res.data)
 
         resolve(res.data)
       })
 
       req.catch(err => {
+        console.log('-----', err)
         reject(err.response)
       })
     })
@@ -66,10 +67,10 @@ export const actions = {
           // lunr.js 2.0 has an immutable index!
           // https://github.com/olivernn/lunr.js/issues/259#issuecomment-298691512
           let idx = lunr(function() {
-            this.field("title")
-            this.field("description")
-            this.field("long_description")
-            this.ref("id")
+            this.field('title')
+            this.field('description')
+            this.field('long_description')
+            this.ref('id')
 
             state.all.forEach(document => {
               this.add(document)
@@ -80,9 +81,9 @@ export const actions = {
             return getters.getById(result.ref)
           })
 
-          commit("replaceFiltered", results)
+          commit('replaceFiltered', results)
         } else {
-          commit("replaceFiltered", [])
+          commit('replaceFiltered', [])
         }
 
         resolve()
