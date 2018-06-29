@@ -48,13 +48,14 @@ export const actions = {
       )
 
       req.then(res => {
+        console.log('----- then', res.data)
         commit('replace', res.data)
 
         resolve(res.data)
       })
 
       req.catch(err => {
-        console.log('-----', err)
+        console.log('----- catch', err)
         reject(err.response)
       })
     })
