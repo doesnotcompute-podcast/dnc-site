@@ -54,7 +54,7 @@ export const actions = {
       })
 
       req.catch(err => {
-        console.log('-----', err)
+        console.log('-----', err.response)
         reject(err.response)
       })
     })
