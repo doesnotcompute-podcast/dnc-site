@@ -1,5 +1,6 @@
 const { Nuxt, Builder } = require('nuxt')
 const app = require('express')()
+const enforce = require('express-sslify')
 const port = parseInt(process.env.PORT) || 3000
 const host = process.env.HOST || '0.0.0.0'
 const morgan = require('morgan')
@@ -7,6 +8,15 @@ const isProd = process.env.NODE_ENV === 'production'
 const logFormat = isProd ? 'combined' : 'dev'
 
 app.use(morgan(logFormat))
+app.set('trust proxy', true)
+
+if (isProd) {
+  app.use(
+    enforce.HTTPS({
+      trustProtoHeader: true
+    })
+  )
+}
 
 let config = require('../nuxt.config.js')
 const nuxt = new Nuxt(config)
