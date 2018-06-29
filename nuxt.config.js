@@ -1,5 +1,7 @@
 require('dotenv').config()
 
+const axios = require('axios')
+
 const title = 'Does Not Compute Podcast'
 const description =
   'A weekly podcast about the lives and workflows of modern web developers, hosted by Sean Washington & Paul Straw.'
@@ -10,6 +12,10 @@ module.exports = {
     meta: [
       { charset: 'utf-8' },
       { name: 'viewport', content: 'width=device-width, initial-scale=1' },
+      {
+        name: 'google-site-verification',
+        content: process.env.G_SITE_VERIFICATION_TOKEN
+      },
       { hid: 'description', name: 'description', content: description },
       { hid: 'og:title', property: 'og:title', content: title },
       {
@@ -36,9 +42,10 @@ module.exports = {
   env: {
     API_KEY: process.env.API_KEY,
     API_URL: process.env.API_URL,
-    GA_ID: process.env.GA_ID
+    GA_ID: process.env.GA_ID,
+    G_SITE_VERIFICATION_TOKEN: process.env.G_SITE_VERIFICATION_TOKEN
   },
-  modules: ['@nuxtjs/axios', '@nuxtjs/markdownit'],
+  modules: ['@nuxtjs/axios', '@nuxtjs/sitemap', '@nuxtjs/markdownit'],
   markdownit: {
     injected: true
   },
@@ -46,5 +53,22 @@ module.exports = {
     debug: false,
     credentials: false,
     baseURL: process.env.API_URL
+  },
+  sitemap: {
+    routes: function() {
+      let url = `${process.env.API_URL}/podcasts/${
+        process.env.PODCAST_ID
+      }/episodes.json?api_key=${process.env.API_KEY}`
+
+      return axios.get(url).then(res => {
+        return res.data.map(episode => {
+          return {
+            url: '/episodes/' + episode.id,
+            lastmodISO: episode.published_at,
+            priority: 0.9
+          }
+        })
+      })
+    }
   }
 }
