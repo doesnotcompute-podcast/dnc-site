@@ -48,13 +48,17 @@ export const actions = {
       )
 
       req.then(res => {
-        commit('replace', res.data)
+        // TODO: Not sure how to get only published episodes from the API as
+        // there aren't any docs.
+        let episodes = res.data.filter(episode => {
+          return episode.published
+        })
 
+        commit('replace', episodes)
         resolve(res.data)
       })
 
       req.catch(err => {
-        console.log('----- catch', err)
         reject(err.response)
       })
     })
