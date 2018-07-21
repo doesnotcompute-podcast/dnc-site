@@ -4,8 +4,8 @@
 
 ## Development
 
-1. Install [Docker](https://www.docker.com/)
-2. Add your `.env` file to the project root. An example can be found at `.env.sample`.
+1. Add your `.env` file to the project root. An example can be found at `.env.sample`.
+2. Run `npm i`
 3. Run `npm run dev`
 4. Visit `localhost:3000`
 
