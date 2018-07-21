@@ -25,8 +25,8 @@ module.exports = {
         property: 'og:image:type',
         content: 'image/jpeg'
       },
-      { hid: 'og:image:height', property: 'og:image:height', content: '3000' },
-      { hid: 'og:image:width', property: 'og:image:width', content: '3000' },
+      { hid: 'og:image:height', property: 'og:image:height', content: '630' },
+      { hid: 'og:image:width', property: 'og:image:width', content: '1200' },
       {
         hid: 'og:description',
         property: 'og:description',
