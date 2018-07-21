@@ -4,7 +4,8 @@ const axios = require('axios')
 
 const title = 'Does Not Compute Podcast'
 const description =
-  'A weekly podcast about the lives and workflows of modern web developers, hosted by Sean Washington & Paul Straw.'
+  'A weekly podcast about the lives and workflows of modern web developers, hosted by Sean Washington, Rockwell Schrock, and Mikhail Delport.'
+const ogImage = '/ogimage.jpg'
 
 module.exports = {
   head: {
@@ -18,6 +19,14 @@ module.exports = {
       },
       { hid: 'description', name: 'description', content: description },
       { hid: 'og:title', property: 'og:title', content: title },
+      { hid: 'og:image', property: 'og:image', content: ogImage },
+      {
+        hid: 'og:image:type',
+        property: 'og:image:type',
+        content: 'image/jpeg'
+      },
+      { hid: 'og:image:height', property: 'og:image:height', content: '3000' },
+      { hid: 'og:image:width', property: 'og:image:width', content: '3000' },
       {
         hid: 'og:description',
         property: 'og:description',
