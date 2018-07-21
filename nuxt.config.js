@@ -20,6 +20,7 @@ module.exports = {
       },
       { hid: 'description', name: 'description', content: description },
       { hid: 'og:url', property: 'og:url', content: ogUrl },
+      { hid: 'og:audio:type', property: 'og:audio:type', content: 'audio/mp3' },
       { hid: 'og:title', property: 'og:title', content: title },
       { hid: 'og:image', property: 'og:image', content: ogImageUrl },
       {

@@ -62,6 +62,11 @@ export default {
           hid: 'og:description',
           property: 'og:description',
           content: this.episode.description
+        },
+        {
+          hid: 'og:audio',
+          property: 'og:audio',
+          content: this.episode.audio_url
         }
       ]
     }
