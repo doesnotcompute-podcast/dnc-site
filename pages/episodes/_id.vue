@@ -49,6 +49,11 @@ export default {
           content: this.episode.description
         },
         {
+          hid: 'og:url',
+          property: 'og:url',
+          content: process.env.SITE_URL + this.$route.path
+        },
+        {
           hid: 'og:title',
           property: 'og:title',
           content: `Episode ${this.episode.title}`

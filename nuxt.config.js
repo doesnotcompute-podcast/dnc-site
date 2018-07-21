@@ -2,10 +2,11 @@ require('dotenv').config()
 
 const axios = require('axios')
 
+const ogUrl = process.env.SITE_URL
 const title = 'Does Not Compute Podcast'
 const description =
   'A weekly podcast about the lives and workflows of modern web developers, hosted by Sean Washington, Rockwell Schrock, and Mikhail Delport.'
-const ogImage = '/ogimage.jpg'
+const ogImageUrl = `${process.env.SITE_URL}/ogimage.jpg`
 
 module.exports = {
   head: {
@@ -18,8 +19,9 @@ module.exports = {
         content: process.env.G_SITE_VERIFICATION_TOKEN
       },
       { hid: 'description', name: 'description', content: description },
+      { hid: 'og:url', property: 'og:url', content: ogUrl },
       { hid: 'og:title', property: 'og:title', content: title },
-      { hid: 'og:image', property: 'og:image', content: ogImage },
+      { hid: 'og:image', property: 'og:image', content: ogImageUrl },
       {
         hid: 'og:image:type',
         property: 'og:image:type',
@@ -49,6 +51,7 @@ module.exports = {
   loading: { color: '#3B8070' },
   plugins: [{ src: '~plugins/ga.js', ssr: false }],
   env: {
+    SITE_URL: process.env.SITE_URL,
     API_KEY: process.env.API_KEY,
     API_URL: process.env.API_URL,
     GA_ID: process.env.GA_ID,
